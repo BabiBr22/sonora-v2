@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./testeSpotify/styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <div id="logoSonora">
+            <img src="./testeSpotify/imagens/unnamed.png" alt="Logo Sonora">
+        </div>
+        <h1>Entrar</h1>
+        <input id="loginEmail" type="email" placeholder="Endereço de e-mail">
+        <input id="loginPassword" type="password" placeholder="Senha">
+        <button class="button" onclick="login()">Entrar</button>
+        <p>ou</p>
+        <!-- Outros elementos omitidos -->
+        <div class="register-link">
+            <p>Não tem uma conta? <a href="./testeSpotify/indexregistro.html">Crie uma aqui.</a></p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const loginEmail = document.getElementById('loginEmail').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            // Recupera os dados do localStorage
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+
+            // Verifica se o email e a senha correspondem
+            if (loginEmail === storedEmail && loginPassword === storedPassword) {
+                alert('Login bem-sucedido!');
+                // Redireciona para a página principal ou dashboard
+                window.location.href = './testeSpotify/home.html';
+            } else {
+                alert('E-mail ou senha incorretos.');
+            }
+        }
+    </script>
+</body>
+</html>
